@@ -6,4 +6,4 @@ A React app showcasing frontend UI components
 - Redux
 - React Routes
 - Axios
-- Firebase for backend database and deployment
+- Firebase for backend database and hosting
