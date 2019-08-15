@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import Spinner from  '../../components/UI/Spinner/Spinner';
+import ErrorMessage from  '../../components/UI/ErrorMessage/ErrorMessage';
 import styles from './Auth.module.css';
 import * as actions from '../../store/actions/index';
 import { updateObject, checkValidity } from '../../shared/utility';
@@ -100,7 +101,7 @@ class Auth extends Component {
         let errorMessage = null;
         if(this.props.error){
             errorMessage = (
-                <p>{this.props.error.message}</p>
+                <ErrorMessage error={this.props.error.message}/>
             )
         }
 
@@ -111,6 +112,7 @@ class Auth extends Component {
 
         return(
             <div className={styles.Auth}>
+                <h1>{this.state.isSignup ? "SIGN UP" : "SIGN IN" }</h1>
                 {authRedirect}
                 {errorMessage}
                 <form onSubmit={this.submitHandler}>
